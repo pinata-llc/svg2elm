@@ -15,7 +15,11 @@ import SvgParser exposing (SvgAttribute, SvgNode(..), parseToNode)
 
 quote : String -> String
 quote val =
-    "\"\"\"" ++ val ++ "\"\"\""
+    if String.contains "\n" val || String.contains "\u{000D}" val || String.contains "\"" val then
+        "\"\"\"" ++ val ++ "\"\"\""
+
+    else
+        "\"" ++ val ++ "\""
 
 
 compileAttributes : List SvgAttribute -> String
