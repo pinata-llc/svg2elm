@@ -1,0 +1,42 @@
+{
+  "name": "svg2elm",
+  "version": "0.1.0",
+  "description": "Turn SVG files into Elm code",
+  "main": "bundle.js",
+  "files": [
+    "dist/bundle.js",
+    "bin/svg2elm"
+  ],
+  "bin": {
+    "svg2elm": "bin/svg2elm"
+  },
+  "scripts": {
+    "build": "parcel build src/svg2elm.ts --out-file bundle.js --target node --no-source-maps"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pinata-llc/svg2elm.git"
+  },
+  "keywords": [
+    "convert",
+    "svg",
+    "elm",
+    "icons",
+    "inline-svg"
+  ],
+  "contributors": [
+    "Agustín Zubiaga <agustin@gopinata.com>",
+    "Piotr Brzeziński <piotr@gopinata.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pinata-llc/svg2elm/issues"
+  },
+  "homepage": "https://github.com/pinata-llc/svg2elm#readme",
+  "devDependencies": {
+    "@types/node": "^13.1.6",
+    "node-elm-compiler": "^5.0.4",
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.4"
+  }
+}
