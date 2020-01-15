@@ -7,7 +7,7 @@ Turn SVG files into Elm code
 ## Install
 
 ```sh
-$ npm install -g elm2svg
+$ npm install -g svg2elm
 ```
 
 ## Usage
@@ -15,7 +15,7 @@ $ npm install -g elm2svg
 Running
 
 ```sh
-$ elm2svg --module Company.Icons chevron.svg
+$ svg2elm --module Company.Icons chevron.svg
 ```
 
 Outputs
