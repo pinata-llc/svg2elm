@@ -1,5 +1,7 @@
 # svg2elm
 
+Status: *Experimental*
+
 Turn SVG files into Elm code
 
 ## Install
