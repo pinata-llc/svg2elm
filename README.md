@@ -1,5 +1,7 @@
 # svg2elm
 
+[![npm version](https://img.shields.io/npm/v/svg2elm.svg)](https://www.npmjs.com/package/svg2elm) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg?maxAge=2592000)](LICENSE)
+
 Status: *Experimental*
 
 Turn SVG files into Elm code
