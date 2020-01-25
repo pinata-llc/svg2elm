@@ -30,7 +30,7 @@ $ cat chevron.svg
 Using `svg2elm` we can generate an Elm module out of it. Let's call ours `Acme.Icons`:
 
 ```console
-$ svg2elm --module Acme.Icons user.svg
+$ svg2elm --module Acme.Icons user.svg > Acme/Icons.elm
 ```
 
 ```elm
@@ -46,6 +46,10 @@ chevron attrs = Svg.node "svg" ([attribute "xmlns" "http://www.w3.org/2000/svg",
 We are now ready to embed the icon in our app! Since the generated function returns an [Svg](https://package.elm-lang.org/packages/elm/svg/latest/Svg#Svg) node, we can use it like any other element:
 
 ```elm
+import Acme.Icons exposing (chevron)
+
+...
+
 nextPage =
     button []
         [ text "Next Page"
@@ -89,13 +93,13 @@ You likely want to generate a module with all your app icons. You can do this by
 $ svg2elm --module Acme.Icons icons/chevron.svg icons/user.svg
 ```
 
-or you can use globs:
+...or you can use globs:
 
 ```console
 $ svg2elm --module Acme.Icons icons/*.svg
 ```
 
-A functon will be generated for each SVG file.
+A function will be generated for each SVG file.
 
 ## Elm UI
 
