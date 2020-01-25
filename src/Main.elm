@@ -50,15 +50,14 @@ compileNode attrs node =
         SvgElement { name, attributes, children } ->
             "Svg.node "
                 ++ quote name
+                ++ " (["
+                ++ compileAttributes attributes
                 ++ (if attrs then
-                        " (attrs ++ "
+                        "] ++ attrs) "
 
                     else
-                        " ("
+                        "]) "
                    )
-                ++ "["
-                ++ compileAttributes attributes
-                ++ "]) "
                 ++ "["
                 ++ compileChildren children
                 ++ "]"

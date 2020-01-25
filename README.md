@@ -40,7 +40,7 @@ import Svg
 import VirtualDom exposing (Attribute, attribute)
 
 chevron : List (Attribute msg) -> Svg.Svg msg
-chevron attrs = Svg.node "svg" (attrs ++ [attribute "xmlns" "http://www.w3.org/2000/svg", attribute "viewBox" "0 0 100 100"]) [ Svg.node "line" ([attribute "x1" "1", attribute "y1" "1", attribute "x2" "50", attribute "y2" "50", attribute "stroke-linecap" "round"]) [], Svg.node "line" ([attribute "x1" "50", attribute "y1" "50", attribute "x2" "1", attribute "y2" "99", attribute "stroke-linecap" "round"]) []]
+chevron attrs = Svg.node "svg" ([attribute "xmlns" "http://www.w3.org/2000/svg", attribute "viewBox" "0 0 100 100"] ++ attrs) [ Svg.node "line" ([attribute "x1" "1", attribute "y1" "1", attribute "x2" "50", attribute "y2" "50", attribute "stroke-linecap" "round"]) [], Svg.node "line" ([attribute "x1" "50", attribute "y1" "50", attribute "x2" "1", attribute "y2" "99", attribute "stroke-linecap" "round"]) []]
 ```
 
 We are now ready to embed the icon in our app! Since the generated function returns an [Svg](https://package.elm-lang.org/packages/elm/svg/latest/Svg#Svg) node, we can use it like any other element:
@@ -75,7 +75,7 @@ Similarly, we could change the size, colors, stroke width, etc.
 
 ```elm
 ...
-        , chevron [ width 20, stroke "blue", strokeWidth 2 ]
+        , chevron [ width "30", stroke "blue", strokeWidth "2" ]
 ...
 ```
 
