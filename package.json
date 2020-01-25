@@ -22,7 +22,8 @@
     "svg",
     "elm",
     "icons",
-    "inline-svg"
+    "inline-svg",
+    "svg-to-elm"
   ],
   "contributors": [
     "Agustín Zubiaga <agustin@gopinata.com>",
