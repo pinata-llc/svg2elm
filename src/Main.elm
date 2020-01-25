@@ -51,12 +51,12 @@ compileNode attrs node =
             "Svg.node "
                 ++ quote name
                 ++ (if attrs then
-                        " (attrs ++"
+                        " (attrs ++ "
 
                     else
-                        "("
+                        " ("
                    )
-                ++ " ["
+                ++ "["
                 ++ compileAttributes attributes
                 ++ "]) "
                 ++ "["
