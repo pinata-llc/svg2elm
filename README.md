@@ -121,14 +121,14 @@ This package also exposes a JavaScript API that can be used to fit `svg2elm` int
 
 It's just three functions: [reference](https://pinata-llc.github.io/svg2elm/modules/_svg2elm_.html).
 
+## License
+
+BSD-3-Clause. See [LICENSE](LICENSE) file.
+
 ## Humans
 
 Thanks to [rnons](https://github.com/rnons) for building [elm-svg-parser](https://package.elm-lang.org/packages/rnons/elm-svg-parser/latest/) and [Garados007](https://github.com/Garados007) for making it work with Elm 0.19.
 
 Built by [Piotr Brzeziński](https://github.com/brzezinskip) and [Agustín Zubiaga](https://github.com/aguzubiaga) at [PINATA.](https://www.gopinata.com)
 
-🤍
-
-## LICENSE
-
-[BSD-3-Clause](LICENSE)
+♥︎
