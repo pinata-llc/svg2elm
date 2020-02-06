@@ -3,7 +3,9 @@ import fs from "fs";
 
 const { Elm } = require("./Main.elm");
 
-type Result = { type: "Ok"; elm: string } | { type: "Err"; error: string };
+type Ok = { type: "Ok"; elm: string };
+type Err = { type: "Err"; error: string };
+type Result = Ok | Err;
 
 /**
  * Generates an Elm function from an SVG.

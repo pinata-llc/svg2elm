@@ -2,7 +2,9 @@
 
 [![npm version](https://img.shields.io/npm/v/svg2elm.svg)](https://www.npmjs.com/package/svg2elm) [![GitHub license](https://img.shields.io/npm/l/svg2elm)](LICENSE)
 
-This CLI tool takes one or more SVG files and generates an Elm module with a function per file.
+Generates Elm modules out of SVG files. Comes with a [CLI tool](#installation) and a [JavaScript API](#api) to build bundler plugins.
+
+Using Parcel? Check out [parcel-plugin-elm-svg](https://github.com/pinata-llc/parcel-plugin-elm-svg).
 
 ## Installation
 
@@ -113,6 +115,12 @@ nextPage =
         ]
 ```
 
+## API
+
+This package also exposes a JavaScript API that can be used to fit `svg2elm` into any build process.
+
+It's just three functions: [reference](https://pinata-llc.github.io/svg2elm/modules/_svg2elm_.html).
+
 ## Humans
 
 Thanks to [rnons](https://github.com/rnons) for building [elm-svg-parser](https://package.elm-lang.org/packages/rnons/elm-svg-parser/latest/) and [Garados007](https://github.com/Garados007) for making it work with Elm 0.19.
@@ -120,3 +128,7 @@ Thanks to [rnons](https://github.com/rnons) for building [elm-svg-parser](https:
 Built by [Piotr Brzeziński](https://github.com/brzezinskip) and [Agustín Zubiaga](https://github.com/aguzubiaga) at [PINATA.](https://www.gopinata.com)
 
 🤍
+
+## LICENSE
+
+[BSD-3-Clause](LICENSE)
