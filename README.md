@@ -1,6 +1,6 @@
 # svg2elm
 
-[![npm version](https://img.shields.io/npm/v/svg2elm.svg)](https://www.npmjs.com/package/svg2elm) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg?maxAge=2592000)](LICENSE)
+[![npm version](https://img.shields.io/npm/v/svg2elm.svg)](https://www.npmjs.com/package/svg2elm) [![GitHub license](https://img.shields.io/npm/l/svg2elm)](LICENSE)
 
 This CLI tool takes one or more SVG files and generates an Elm module with a function per file.
 
