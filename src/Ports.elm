@@ -1,16 +1,6 @@
-port module Ports exposing (..)
+port module Ports exposing (compiled)
+
+import Json.Encode exposing (Value)
 
 
-port readFiles : List String -> Cmd msg
-
-
-port filesRead : (List ( String, String ) -> msg) -> Sub msg
-
-
-port print : String -> Cmd msg
-
-
-port printAndExitFailure : String -> Cmd msg
-
-
-port printAndExitSuccess : String -> Cmd msg
+port compiled : Value -> Cmd msg
