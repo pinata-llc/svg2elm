@@ -30,7 +30,7 @@ $ cat chevron.svg
 Using `svg2elm` we can generate an Elm module out of it. Let's call ours `Acme.Icons`:
 
 ```console
-$ svg2elm --module Acme.Icons user.svg > Acme/Icons.elm
+$ svg2elm --module Acme.Icons chevron.svg > Acme/Icons.elm
 ```
 
 ```elm
