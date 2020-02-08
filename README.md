@@ -121,6 +121,10 @@ This package also exposes a JavaScript API that can be used to fit `svg2elm` int
 
 It's just three functions: [reference](https://pinata-llc.github.io/svg2elm/modules/_svg2elm_.html).
 
+## Inspiration
+
+At [PINATA](https://www.gopinata.com), we have been using [SVGR](https://github.com/gregberge/svgr) for years to load our icons as React components. This project aims to bring the same experience to the world of Elm.
+
 ## License
 
 BSD-3-Clause. See [LICENSE](LICENSE) file.
