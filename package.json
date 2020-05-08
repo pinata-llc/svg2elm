@@ -1,6 +1,6 @@
 {
   "name": "svg2elm",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Generates Elm modules out of SVG files",
   "main": "dist/svg2elm.js",
   "files": [
