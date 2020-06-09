@@ -12,7 +12,7 @@
   },
   "scripts": {
     "build": "parcel build src/svg2elm.ts src/cli.ts --target node && tsc --emitDeclarationOnly",
-    "docs": "typedoc --excludeNotExported --out docs src/svg2elm.ts"
+    "docs": "typedoc --excludeNotExported --out docs src/svg2elm.ts && touch docs/.nojekyll"
   },
   "repository": {
     "type": "git",
