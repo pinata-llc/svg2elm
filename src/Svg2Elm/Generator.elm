@@ -65,7 +65,9 @@ compileFunction : String -> String -> Result String String
 compileFunction name code =
     let
         fnName =
-            toCamelCaseLower name
+            name
+                |> toCamelCaseLower
+                |> prefixDigitLeadingNames
 
         fixedCode =
             case Regex.fromString "([\\s\\S]*)<svg" of
@@ -78,3 +80,17 @@ compileFunction name code =
     parseToNode fixedCode
         |> Result.map
             (compileNode True >> (++) (fnName ++ " : List (Attribute msg) -> Svg.Svg msg\n" ++ fnName ++ " attrs = "))
+
+
+prefixDigitLeadingNames : String -> String
+prefixDigitLeadingNames name =
+    case String.uncons name of
+        Just ( first, rest ) ->
+            if Char.isDigit first then
+                "n" ++ name
+
+            else
+                name
+
+        Nothing ->
+            name
