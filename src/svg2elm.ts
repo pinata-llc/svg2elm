@@ -64,5 +64,5 @@ export async function generateModule(
 
     const header = generateModuleHeader(moduleName);
 
-    return `${header}\n\n${functions.join("\n\n")}`;
+    return `${header}\n\n${functions.join("\n\n\n")}\n`;
 }
