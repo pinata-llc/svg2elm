@@ -21,44 +21,45 @@ compileAttributes =
             (\( name, val ) -> "attribute " ++ quote name ++ " " ++ quote val)
 
 
-compileChildren : List SvgNode -> String
-compileChildren =
+compileNodes : Bool -> List SvgNode -> String
+compileNodes attrs =
     let
-        nodeJoin node =
+        nodeStep node =
             case node of
-                SvgComment _ ->
-                    " "
+                SvgElement { name, attributes, children } ->
+                    "Svg.node "
+                        ++ quote name
+                        ++ (if attrs then
+                                " ([ "
 
-                _ ->
-                    ", "
+                            else
+                                " [ "
+                           )
+                        ++ compileAttributes attributes
+                        ++ (if attrs then
+                                " ] ++ attrs) "
+
+                            else
+                                " ] "
+                           )
+                        ++ (if List.isEmpty children then
+                                "[],"
+
+                            else
+                                "[ "
+                                    ++ compileNodes False children
+                                    ++ " ],"
+                           )
+
+                SvgText text ->
+                    "Svg.text (" ++ quote text ++ "),"
+
+                SvgComment comment ->
+                    "{- " ++ String.trim comment ++ " -} "
     in
-    List.foldl (\node b -> b ++ nodeJoin node ++ compileNode False node) ""
-        >> String.dropLeft 1
-
-
-compileNode : Bool -> SvgNode -> String
-compileNode attrs node =
-    case node of
-        SvgElement { name, attributes, children } ->
-            "Svg.node "
-                ++ quote name
-                ++ " (["
-                ++ compileAttributes attributes
-                ++ (if attrs then
-                        "] ++ attrs) "
-
-                    else
-                        "]) "
-                   )
-                ++ "["
-                ++ compileChildren children
-                ++ "]"
-
-        SvgText text ->
-            "Svg.text(" ++ quote text ++ ")"
-
-        SvgComment comment ->
-            "{-" ++ comment ++ "-}"
+    List.map nodeStep
+        >> String.concat
+        >> String.dropRight 1
 
 
 compileFunction : String -> String -> Result String String
@@ -77,9 +78,16 @@ compileFunction name code =
                 Just regex ->
                     Regex.replaceAtMost 1 regex (\_ -> "<svg") code
     in
-    parseToNode fixedCode
-        |> Result.map
-            (compileNode True >> (++) (fnName ++ " : List (Attribute msg) -> Svg.Svg msg\n" ++ fnName ++ " attrs = "))
+    Result.map
+        (\rootNode ->
+            fnName
+                ++ " : List (Attribute msg) -> Svg.Svg msg\n"
+                ++ fnName
+                ++ " attrs ="
+                ++ "\n    "
+                ++ compileNodes True [ rootNode ]
+        )
+        (parseToNode fixedCode)
 
 
 prefixDigitLeadingNames : String -> String
